@@ -1,0 +1,51 @@
+LOCAL:
+    TMPDIR: /PATH/TO/TEMP/DIRECTORY/ #CHANGE ME
+    DROPSEQ-wrapper: PATH/TO/DROPSEQTOOLS/WRAPPER/drop-seq-tools-wrapper.sh #this is from dropSeqPipe
+    MEMORY: 2g
+    EMAIL: yourEmail@domain.edu #CHANGE ME
+    JOB_LABEL: jobLabel #CHANGE ME
+SOFTWARE:
+    STAR: /PATH/TO/STAR/EXECUTABLE/STAR
+    FASTQC: /PATH/TO/FASTQ/EXECUTABLE/fastqc
+    TRIMMOMATIC: /PATH/TO/TRIMMOMATIC/JAR/trimmomatic-0.36.jar
+    JAVA: /PATH/TO/JAVA/DISTRO/EXECUTABLE/java
+    PICARD: /PATH/TO/PICARD/JAR/picard.jar
+    MULTIQC: /PATH/TO/MULTIQC/EXECUTABLE/multiqc
+    SAMTOOLS: /PATH/TO/SAMTOOLS/EXECUTABLE/samtools
+    QUALITY_TAG: /PATH/TO/PYTHON/SCRIPT/tagBarcodeQuality.py
+    PYTHON_PATH: /PATH/TO/PREFERRED/PYTHON/VERSION/python3.6
+    DROPEST: /PATH/TO/DROPEST/EXECUTABLE/dropest
+    DROPESTXML: /PATH/TO/DROPSEQ/XML/FOR/DROPEST/drop_seq.xml
+    R_PATH: /PATH/TO/RSCRIPT/EXECUTABLE/IF/YOU/BUILT/DROPEST/WITH/A/DIFFERENT/VERSION/Rscript
+    dropReport: PATH/TO/DROPREPORT/SCRIPT/dropReport.Rsc #CHANGE ME
+    dropESTfilterCells: scripts/FilterDropESTcells.R
+META:
+    reference_file: genomePrefix.fasta
+    annotation_file: genomePrefix.gtf
+    gtf_file: /PATH/TO/REFERENCE/GENOME/GTF/genomePrefix.gtf
+    reference_folder: /PATH/TO/REFERENCE/GENOME/FOLDER/
+    mt_genes: /PATH/TO/FILE/WITH/REFERENCE/GENOME/MT/GENES/genomePrefixMitGenes.rds
+    mt_chrom: MT
+    species:
+        - speciesName
+FILTER:
+    SeqAdapters: /PATH/TO/NEXTERA/SEQUENCE/ADAPTERS/NexteraPE-PE.fa
+    5PrimeSmartAdapter: AAGCAGTGGTATCAACGCAGAGTGAATGGG #changed this from the original in the script: CACACTCTTTCCCTACACGACGC
+    Cell_barcode:
+        start: 1
+        end: 12
+        min_quality: 10 #30
+        num_below_quality: 1 #0
+    UMI:
+        start: 13
+        end: 20
+        min_quality: 10 #30
+        num_below_quality: 1 #0
+EXTRACTION:
+    bc_edit_distance: 1 #0
+    min_count_per_umi: 0 #1
+STAR_PARAMETERS:
+    outFilterMismatchNmax: 10
+    outFilterMismatchNoverLmax: 0.3
+    outFilterMismatchNoverReadLmax: 1 
+    outFilterMatchNmin: 0
