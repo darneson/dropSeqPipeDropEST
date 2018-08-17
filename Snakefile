@@ -1,15 +1,6 @@
 import pandas as pd
 import os
 
-#Set up environment and paths (to be able to run DropEST)
-shell.executable("/bin/bash")
-shell.prefix("source /u/local/Modules/default/init/modules.sh; ")
-shell.prefix("export PATH=$HOME/local/bin:$PATH; ")
-shell.prefix("export LD_LIBRARY_PATH=$HOME/local/lib:$LD_LIBRARY_PATH; ")
-shell.prefix('export CFLAGS="-I$HOME/local/include"; ')
-shell.prefix('export LDFLAGS="-L$HOME/local/lib" ; ')
-
-
 configfile: "config.yaml"
 
 ##### email/job title #####
